@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>jpoint_2023</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>com.github.akarnokd</groupId>
+      <artifactId>rxjava2-jdk8-interop</artifactId>
+      <version>0.3.7</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.akarnokd</groupId>
+      <artifactId>rxjava2-extensions</artifactId>
+      <version>0.20.10</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>6.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webflux</artifactId>
+      <version>6.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>6.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
+      <version>3.5.3</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>com.github.testng-team</groupId>
+      <artifactId>testng-junit5</artifactId>
+      <version>0.0.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>

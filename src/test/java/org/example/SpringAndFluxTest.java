@@ -18,7 +18,7 @@ public class SpringAndFluxTest extends BaseTest {
 
     @Test
     void testSpringAndFlux() throws Exception {
-        Publisher<ByteBuffer> byteBufferPublisher = generate();
+        Publisher<ByteBuffer> byteBufferPublisher = dataSource();
 
         try (InputStream input = inputStream(byteBufferPublisher)) {
 
@@ -45,7 +45,7 @@ public class SpringAndFluxTest extends BaseTest {
                 }
             });
 
-            CompletableFuture<ByteBuffer> writeFuture = reduceFuture(res);
+            CompletableFuture<ByteBuffer> writeFuture = dataConsumer(res);
             future.get();
 
             int actual = writeFuture.get().remaining();

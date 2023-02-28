@@ -13,8 +13,8 @@ public class ByteArrayTest extends BaseTest {
 
     @Test
     void testByteArray() throws Exception {
-        Publisher<ByteBuffer> byteBufferPublisher = generate();
-        ByteBuffer bb = reduceFuture(byteBufferPublisher).get();
+        Publisher<ByteBuffer> byteBufferPublisher = dataSource();
+        ByteBuffer bb = dataConsumer(byteBufferPublisher).get();
         byte[] bytes = new byte[bb.remaining()];
         bb.get(bytes);
         try (
@@ -23,7 +23,7 @@ public class ByteArrayTest extends BaseTest {
         ) {
             process(input, output);
 
-            int actual = reduceFuture(
+            int actual = dataConsumer(
                 Flux.fromArray(new ByteBuffer[]{ByteBuffer.wrap(output.toByteArray())})
             ).get().remaining();
             System.out.printf("Total processed %d bytes\n", actual);

@@ -54,9 +54,9 @@ public class BaseTest {
     }
 
     /**
-     * @return Publisher тестовых данных.
+     * @return Data source.
      */
-    Publisher<ByteBuffer> generate() {
+    Publisher<ByteBuffer> dataSource() {
         return Flux.generate(() -> 0, (state, sink) -> {
                 int i = state;
                 if (i == BUF_NUM) {
@@ -76,7 +76,7 @@ public class BaseTest {
     /**
      * @return CompletableFuture returns ByteBuffer, that contains Publisher's all data.
      */
-    CompletableFuture<ByteBuffer> reduceFuture(Publisher<ByteBuffer> source) {
+    CompletableFuture<ByteBuffer> dataConsumer(Publisher<ByteBuffer> source) {
         return Flowable.fromPublisher(source)
             .reduce(ByteBuffer.allocate(0),
                 (left, right) -> {

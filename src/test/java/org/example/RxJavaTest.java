@@ -25,13 +25,13 @@ public class RxJavaTest extends BaseTest {
 
     @Test
     void testRxJava() throws Exception {
-        Publisher<ByteBuffer> byteBufferPublisher = generate();
+        Publisher<ByteBuffer> byteBufferPublisher = dataSource();
         CompletableFuture<ByteBuffer> writeFuture;
         try (
             InputStream input = new PublisherAsInputStream(byteBufferPublisher, Schedulers.io()).inputStream();
             PublishingOutputStream output = new PublishingOutputStream()
         ) {
-            writeFuture = reduceFuture(output.publisher());
+            writeFuture = dataConsumer(output.publisher());
 
             process(input, output);
         } catch (IOException e) {

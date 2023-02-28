@@ -45,7 +45,7 @@ public class SpringAndFluxTest extends BaseTest {
                 }
             });
 
-            CompletableFuture<ByteBuffer> writeFuture = dataConsumer(res);
+            CompletableFuture<ByteBuffer> writeFuture = reduce(res);
             future.get();
 
             int actual = writeFuture.get().remaining();

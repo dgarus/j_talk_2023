@@ -76,7 +76,7 @@ public class BaseTest {
     /**
      * @return CompletableFuture returns ByteBuffer, that contains Publisher's all data.
      */
-    CompletableFuture<ByteBuffer> dataConsumer(Publisher<ByteBuffer> source) {
+    CompletableFuture<ByteBuffer> reduce(Publisher<ByteBuffer> source) {
         return Flowable.fromPublisher(source)
             .reduce(ByteBuffer.allocate(0),
                 (left, right) -> {

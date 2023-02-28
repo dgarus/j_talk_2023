@@ -31,7 +31,7 @@ public class RxJavaTest extends BaseTest {
             InputStream input = new PublisherAsInputStream(byteBufferPublisher, Schedulers.io()).inputStream();
             PublishingOutputStream output = new PublishingOutputStream()
         ) {
-            writeFuture = dataConsumer(output.publisher());
+            writeFuture = reduce(output.publisher());
 
             process(input, output);
         } catch (IOException e) {

@@ -48,3 +48,6 @@ src/test/java/org/example/RxJavaTest.java
 
 ## Не требует доп. зависимостей, что делает его более универсальным.
 Заключение. Ссылки на ресурсы.
+
+
+[Заявка](https://mm.jugru.team/java-conf/channels/garus_denis_jpoint-7084)

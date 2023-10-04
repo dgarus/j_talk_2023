@@ -71,8 +71,8 @@ public class ReactivexTest extends BaseTest {
             Objects.requireNonNull(buffer);
             try {
                 while (buffer.hasRemaining()) {
-                    System.out.printf("Writes %d bytes to input stream\n", buffer.remaining());
-                    channel.write(buffer);
+                    int b = channel.write(buffer);
+                    System.out.printf("Wrote %d bytes to input stream\n", b);
                 }
             } catch (IOException ioe) {
                 throw new RuntimeException(ioe);
@@ -82,7 +82,7 @@ public class ReactivexTest extends BaseTest {
         @Override
         public void onError(final Throwable err) {
             try {
-                System.out.println("Close onError");
+                System.out.println("Closed onError");
                 input.close();
             } catch (IOException ioe) {
                 throw new RuntimeException(ioe);
@@ -92,7 +92,7 @@ public class ReactivexTest extends BaseTest {
         @Override
         public void onComplete() {
             try {
-                System.out.println("Close onComplete");
+                System.out.println("Closed onComplete");
                 out.close();
             } catch (IOException ioe) {
                 throw new RuntimeException(ioe);
@@ -147,7 +147,7 @@ public class ReactivexTest extends BaseTest {
                 .doOnNext(
                     list -> {
                         if (list.size() > 0) {
-                            System.out.printf("Write %d to output publisher\n", list.size());
+                            System.out.printf("Wrote %d bytes to output publisher\n", list.size());
                         }
                         byte[] bytes = toByteArray(list);
                         this.pub.onNext(ByteBuffer.wrap(bytes));

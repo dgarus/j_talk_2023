@@ -44,9 +44,9 @@ public class BaseTest {
             final byte[] buffer = new byte[1024];
             int size;
             while ((size = input.read(buffer)) != -1) {
-                System.out.printf("Process %d bytes\n", size);
                 out.write(buffer, 0, size);
                 out.flush();
+                System.out.printf("Processed %d bytes\n", size);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

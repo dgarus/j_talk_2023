@@ -39,7 +39,7 @@ public class SpringAndFluxTest extends BaseTest {
             final Publisher<ByteBuffer> res = DataBufferUtils.readInputStream(
                 () -> writeIsPipe, DefaultDataBufferFactory.sharedInstance, 512
             ).flatMapIterable(dataBuffer -> {
-                System.out.printf("Write %d to output publisher\n", dataBuffer.readableByteCount());
+                System.out.printf("Wrote %d bytes to output publisher\n", dataBuffer.readableByteCount());
                 try (DataBuffer.ByteBufferIterator iter = dataBuffer.readableByteBuffers()) {
                     return (Iterable<ByteBuffer>) () -> iter;
                 }

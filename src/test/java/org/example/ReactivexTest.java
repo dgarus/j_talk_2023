@@ -21,7 +21,7 @@ import org.reactivestreams.Publisher;
 import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
-public class RxJavaTest extends BaseTest {
+public class ReactivexTest extends BaseTest {
 
     @Test
     void testRxJava() throws Exception {

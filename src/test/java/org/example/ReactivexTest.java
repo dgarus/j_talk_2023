@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
 public class ReactivexTest extends BaseTest {
 
     @Test
-    void testRxJava() throws Exception {
+    void testReactivex() throws Exception {
         Publisher<ByteBuffer> byteBufferPublisher = dataSource();
         CompletableFuture<ByteBuffer> writeFuture;
         try (
